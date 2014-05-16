@@ -1,0 +1,4 @@
+class WirisEditorController < ApplicationController
+
+
+end

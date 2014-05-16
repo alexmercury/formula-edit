@@ -19,5 +19,13 @@ module FormulaEditor
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # config.assets.paths << Rails.root.join('vendor', 'assets', 'javascripts', 'ckeditor').to_s
+    # config.assets.precompile += %W( .js .css .png)
+
+    config.assets.precompile << lambda do |filename, path|
+      path =~ /vendor\/assets\/javascripts\/ckeditor/ && %w(.js .css .png).include?(File.extname(filename))
+    end
+
   end
 end
