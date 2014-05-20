@@ -6,12 +6,8 @@ CKEDITOR.editorConfig = (config) ->
   # config.uiColor = '#AADC6E';
 #  config.extraPlugins += ((if config.extraPlugins.length is 0 then "" else ",")) + "ckeditor_wiris"
   config.baseHref = "/assets/"
-#  config.extraPlugins = 'lineutils'
-#  config.extraPlugins = 'widget'
 
-  config.extraPlugins = 'mathjax,my_wiris'
-
-#  config.extraPlugins = 'my_wiris'
+  config.extraPlugins = 'wiris'
 
   config.toolbar_Formula = [
     [
@@ -28,15 +24,15 @@ CKEDITOR.editorConfig = (config) ->
       'my_wiris'
     ]
     [
-      'Mathjax'
+      'Wiris'
     ]
   ]
 
   # Load toolbar_Name where Name = Basic.
   config.toolbar = "Formula"
 
-  config.mathJaxClass = 'my-math';
+  config.mathJaxClass = 'wiris-mathml-formula';
 
-  config.extraAllowedContent = 'wiris';
+  config.allowedContent = true;
 
   return
