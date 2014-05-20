@@ -1,6 +1,5 @@
 = content_for :header do
   = javascript_include_tag 'http://www.wiris.net/demo/editor/editor'
-  -#= javascript_include_tag 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+  = javascript_include_tag 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 
-%div Hello index
 = text_area_tag :test, nil, class: 'ckeditor'
