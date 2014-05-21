@@ -6,6 +6,8 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'haml'
 
+gem 'unicorn-rails'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
