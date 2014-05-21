@@ -6,4 +6,10 @@ class HomeController < ApplicationController
 
   end
 
+  def editor
+
+    render 'home/editor', layout: false
+
+  end
+
 end
