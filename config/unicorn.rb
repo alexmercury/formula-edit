@@ -12,7 +12,7 @@ before_fork do |server, worker|
       ActiveRecord::Base.connection.disconnect!
 end
 
-listen '0.0.0.0:3000' if Rails.env.development?
+listen "0.0.0.0:#{Rails::Server.new.options[:Port].blank? ? '3000' : Rails::Server.new.options[:Port]}"
 
 after_fork do |server, worker|
   Signal.trap 'TERM' do
