@@ -20,4 +20,7 @@ end
 
 #==================== Heroku fix
 ruby '2.1.1'
-gem 'rails_12factor'
+
+group :production do
+  gem 'rails_12factor'
+end
