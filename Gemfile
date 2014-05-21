@@ -6,6 +6,8 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'haml'
 
+gem 'unicorn-rails'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
@@ -15,3 +17,10 @@ end
 # gem 'therubyracer',  platforms: :ruby
 # gem 'turbolinks'
 # gem 'jbuilder', '~> 2.0'
+
+#==================== Heroku fix
+ruby '2.1.1'
+
+group :production do
+  gem 'rails_12factor'
+end
