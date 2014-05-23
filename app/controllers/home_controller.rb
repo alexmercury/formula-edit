@@ -12,4 +12,11 @@ class HomeController < ApplicationController
 
   end
 
+
+  def formula
+
+    render 'home/formula', layout: false
+
+  end
+
 end

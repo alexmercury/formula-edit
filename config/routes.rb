@@ -3,6 +3,7 @@ FormulaEditor::Application.routes.draw do
   root 'home#index'
 
   get 'wiris/editor', to: 'home#editor'
+  get 'wiris/formula', to: 'home#formula'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
