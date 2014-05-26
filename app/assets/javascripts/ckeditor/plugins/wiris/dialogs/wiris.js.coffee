@@ -34,25 +34,23 @@ CKEDITOR.dialog.add 'wiris', (editor) ->
             iframe = widget.element.getChild(0)
 
             if iframe.is('iframe')
-              console.log 'Iframe'
-              console.log iframe.$.contentWindow
-              iframe_html_content = '<!DOCTYPE html><html>' +
-              '<head><script src="' + CKEDITOR.plugins.wiris.mathjax_js_url + '"></script>' +
-              '' +
-              '</head>' +
-              '<body>' + html_data +
-              '</body></html>'
+              iframe.$.onload = ->
+                ibody = iframe.getFrameDocument().getBody()
 
-#              console.log iframe.getFrameDocument()
-              console.log iframe.$.document
-
-              iframe.$.src = "data:text/html;charset=utf-8," + escape(iframe_html_content)
-
-#              iframe.$.contentDocument.setHtml(iframe_html_content);
-#              console.log iframe.$.contentDocument.setHtml(iframe_html_content);
+                ibody.setHtml(html_data)
+                iwindow = iframe.getWindow()
+                unless iwindow.mathjax_init
+                  iwindow.mathjax_init = ->
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub])
 
 
-#            widget.element.setHtml(html_data)
+                if iwindow.mathjax_init()
+                  iframe.setStyles
+                    height: '60px' #ibody.$.offsetHeight + "px"
+                    overflov: 'hidden'
+
+              iframe.$.src = iframe.$.src
+
           return
       }
     ]

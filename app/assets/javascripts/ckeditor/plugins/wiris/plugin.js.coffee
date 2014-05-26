@@ -9,7 +9,7 @@ CKEDITOR.plugins.add 'wiris',
       button: 'Create a wiris math'
 
       template:
-        '<div class="wiris-mathml-formula" style="display:inline-block" data-cke-survive="1"><iframe sandbox="allow-same-origin allow-scripts" frameborder="0" src="wiris/formula"></iframe>'
+        '<div class="wiris-mathml-formula" style="display:block" data-cke-survive="1"><iframe sandbox="allow-same-origin allow-scripts" frameborder="0" src="/wiris/formula"></iframe>'
 #        '<div class="wiris-mathml-formula" style="display:inline-block" data-cke-survive=1></div>'
 
       allowedContent:
