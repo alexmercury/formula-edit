@@ -30,7 +30,27 @@ CKEDITOR.dialog.add 'wiris', (editor) ->
           if wiris_editor != undefined
             html_data = wiris_editor.getMathML()
             widget.setData('math_html', html_data)
-            widget.element.setHtml(html_data)
+
+            iframe = widget.element.getChild(0)
+
+            if iframe.is('iframe')
+              iframe.$.onload = ->
+                ibody = iframe.getFrameDocument().getBody()
+
+                ibody.setHtml(html_data)
+                iwindow = iframe.getWindow()
+                unless iwindow.mathjax_init
+                  iwindow.mathjax_init = ->
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub])
+
+
+                if iwindow.mathjax_init()
+                  iframe.setStyles
+                    height: '60px' #ibody.$.offsetHeight + "px"
+                    overflov: 'hidden'
+
+              iframe.$.src = iframe.$.src
+
           return
       }
     ]
