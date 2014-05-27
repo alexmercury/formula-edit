@@ -21,7 +21,7 @@ CKEDITOR.plugins.add 'wiris',
         return element.name == 'div' && element.hasClass('wiris-mathml-formula')
 
       downcast: (element) ->
-        console.log element
+        console.log element.children[0]
         return
 
       dialog: 'wiris'

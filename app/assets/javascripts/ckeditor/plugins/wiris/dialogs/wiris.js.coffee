@@ -46,6 +46,7 @@ CKEDITOR.dialog.add 'wiris', (editor) ->
 
                 if iwindow.mathjax_init()
                   iframe.setStyles
+                    width: '100%'
                     height: '60px' #ibody.$.offsetHeight + "px"
                     overflov: 'hidden'
 
