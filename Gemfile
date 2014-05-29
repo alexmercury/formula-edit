@@ -6,6 +6,8 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'haml'
 
+gem 'unicorn-rails'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
@@ -18,4 +20,7 @@ end
 
 #==================== Heroku fix
 ruby '2.1.1'
-gem 'rails_12factor'
+
+group :production do
+  gem 'rails_12factor'
+end

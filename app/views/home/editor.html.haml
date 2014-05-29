@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title WIRIS Editor
+    = javascript_include_tag 'application'
+    = javascript_include_tag 'http://www.wiris.net/demo/editor/editor'
+    = csrf_meta_tags
+  %body
+    :coffee
+      $(document).ready ->
+        if window.wiris_editor == undefined
+          window.wiris_editor = com.wiris.jsEditor.JsEditor.newInstance({'language': 'en'})
+        wiris_editor.insertInto(document.getElementById('editorContainer'))
+    #editorContainer

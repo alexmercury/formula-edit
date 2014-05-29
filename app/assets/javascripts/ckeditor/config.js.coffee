@@ -21,9 +21,6 @@ CKEDITOR.editorConfig = (config) ->
       'Redo'
     ]
     [
-      'my_wiris'
-    ]
-    [
       'Wiris'
     ]
   ]
